@@ -22,6 +22,8 @@ var form = document.querySelector("form");
 var labelEl = document.createElement("label");
 var inputEl = document.createElement("input");
 labelEl.textContent = "Name";
+var submit = document.createElement("button")
+submit.textContent = "Submit";
 
 // for scoreboard
 var ol = document.querySelector("ol")
@@ -30,6 +32,7 @@ var names = []
 
 // clicking the start button will start the timer 
 startButton.addEventListener("click",function(event){
+    
     var timeGiven = 3;
     console.log('hey');
     var timeInterval = setInterval(function(){
@@ -46,38 +49,57 @@ startButton.addEventListener("click",function(event){
         // if the timer is equal to zero then the form for the scoreboard will show 
         if(timeGiven === 0){
             count.textContent = ("Times up!");
-            clearInterval(timeInterval);
+            // clearInterval(timeInterval);
             displayForm();
+            
         }
     },1000);
 })
 
 // triggered by the end of the timer 
-function displayForm(event){
+function displayForm(){
+    
     // event.preventDefault();
     // TODO add a score element right here score.textContent = ("Your score is" + score)
     form.appendChild(labelEl)
     form.appendChild(inputEl)
+    form.appendChild(submit)
+    submit.addEventListener("click",function(event){
+        event.preventDefault();
+        names.push(userInfo.userName);
+        for(var i = 0; i<names.length;i++){
+            console.log("help")
+            li.textContent = userInfo.userName;
+            li.setAttribute("data-index",i);
+            ol.appendChild(li)
+        // localStorage.setItem("userInfoStringify", JSON.stringify(userInfo))
+        // li.textContent = "userInfoStringify".userName;
+        }
+    })
+    
    
     var userInfo = {
         userName:inputEl,
         // score: 
-    }
-    return userInfo
+    };
+
+    
+
 }
 function scoreboard(){
 for(var i = 0; i<names.length;i++){
     li.textContent = userInfo.userName;
     // li.setAttribute("data-index",i)
 
-    ol.appendChild(li);
+    ;
 }
 
 
 }
 
 function scoreboardNames(){
-    var lastName = localStorage.getitem("name")
+    var lastName = JSON.parse(localStorage.getitem("userInfoStringify"));
+    document.querySelector("ol").textContent = lastName
 }
 
 
