@@ -27,7 +27,7 @@ submit.textContent = "Submit";
 
 // for scoreboard
 var ol = document.querySelector("ol")
-var li = document.createElement("li")
+
 var names = []
 
 // clicking the start button will start the timer 
@@ -66,22 +66,32 @@ function displayForm(){
     form.appendChild(submit)
     submit.addEventListener("click",function(event){
         event.preventDefault();
-        names.push(userInfo.userName);
+        var userInfo = {
+            userName:inputEl,
+            // score: 
+        };
+        // need to have .value to input the string that is the name 
+        names.push(userInfo.userName.value);
+       
+        // need to clear the inner HTML
+        ol.innerHTML = ""
+        // for loop to add a new list item every time a new name is added to userInfo
         for(var i = 0; i<names.length;i++){
+            var listNames = names[i];
+            var li = document.createElement("li");
             console.log("help")
-            li.textContent = userInfo.userName;
+            li.textContent = listNames
+            // li.textContent = userInfo.userName.value;
             li.setAttribute("data-index",i);
             ol.appendChild(li)
+           
         // localStorage.setItem("userInfoStringify", JSON.stringify(userInfo))
         // li.textContent = "userInfoStringify".userName;
         }
     })
     
    
-    var userInfo = {
-        userName:inputEl,
-        // score: 
-    };
+  
 
     
 
