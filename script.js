@@ -10,23 +10,25 @@ var answer2 = document.getElementById("answer2");
 var answer3 = document.getElementById("answer3");
 var answer4 = document.getElementById("answer4");
 
-
+var i = 0
 
 // questions 
 var qAndA = [
     {question:"What does i stand for in typical for loops?",
     options:["Indicate","Index","Isolate","I dunno"],
-    answerIndex : 1
+    answer: options[1]
     },
     {question:"Which one of these is NOT an event handler for .addEventListener?",
     options:["click","mouseout", "submit", "over"],
-    answerIndex: 3
+    answer: qAndA[1].options[3],
     },
     {question:"setInterval() is counted in:",
     options:["milliseconds", "minutes","seconds","nanoseconds"],
-    answerIndex: 0
+    answer: qAndA[2].options[0]
     }
  ]   
+
+ console.log(qAndA[0].answer)
 
  var qText = question.textContent;
  var a1Text = answer1.textContent;
@@ -35,6 +37,17 @@ var qAndA = [
  var a4Text = answer2.textContent
 
 var qAndALength = Object.keys(qAndA).length
+
+function whichQandA(){
+    question.textContent = qAndA[i].question;
+    answer1.textContent = qAndA[i].options[0];
+    answer2.textContent = qAndA[i].options[1];
+    answer3.textContent = qAndA[i].options[2];
+    answer4.textContent = qAndA[i].options[3];
+    if(i < qAndALength){
+        i++
+    }
+}
 
 
 
@@ -72,68 +85,51 @@ startButton.addEventListener("click",function(event){
 
     },1000)
     // first questions presented
-    question.textContent = qAndA[0].question;
-    answer1.textContent = qAndA[0].options[0];
-    answer2.textContent = qAndA[0].options[1];
-    answer3.textContent = qAndA[0].options[2];
-    answer4.textContent = qAndA[0].options[3];
+
+     whichQandA()
          
      })
 
 
     //  if anywhere in the button container is clicked then:
     answerContainer.addEventListener("click",function(event){
-        event.preventDefault()
-        if(event.target ===answer2){
-           event.stopPropagation
-           console.log("q1 correct");
-           timeGiven = timeGiven
-        }
-        else{
-           console.log("q1wrong")
-           timeGiven = timeGiven - 5;
-           
-        }
+     whichQandA()
+    })
      
-    for(var i = 0;i<qAndALength;i++){
-        question.textContent = qAndA[i].question;
-        answer1.textContent = qAndA[i].options[0];
-        answer2.textContent = qAndA[i].options[1];
-        answer3.textContent = qAndA[i].options[2];
-        answer4.textContent = qAndA[i].options[3];
-     
-        if(i = 1){
-           if(event.target === answer3){
-              event.stopPropagation
-              timeGiven = timeGiven
+
+    // answer
+    //     if(i = 1){
+    //        if(event.target === answer3){
+    //           event.stopPropagation
+    //           timeGiven = timeGiven
               
-           }
-           else{
-              console.log("q2 wrong");
-              timeGiven = timeGiven-5;
+    //        }
+    //        else{
+    //           console.log("q2 wrong");
+    //           timeGiven = timeGiven-5;
               
-           }
-        }
+    //        }
+    //     }
         
      
-        if(i=2){
-           if(event.target === answer1){
-              event.stopPropagation;
-              console.log("q3 right");
-              timeGiven = timeGiven   
-              displayForm()
-           }
-           else{
-              console.log("q3 wrong");
-              timeGiven = timeGiven-5
-              displayForm()
+    //     if(i=2){
+    //        if(event.target === answer1){
+    //           event.stopPropagation;
+    //           console.log("q3 right");
+    //           timeGiven = timeGiven   
+    //           displayForm()
+    //        }
+    //        else{
+    //           console.log("q3 wrong");
+    //           timeGiven = timeGiven-5
+    //           displayForm()
               
-           }
-        }
-        }
-    }
+    //        }
+    //     }
+    //     }
+    // }
         
-     )
+    //  )
     
 
 
