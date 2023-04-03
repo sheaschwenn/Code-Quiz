@@ -175,7 +175,8 @@ function printScore(){
 
 // triggered by the end of the timer 
 function displayForm(){
-    
+    let qAndA = document.getElementById("qAndA-div");
+    qAndA.setAttribute("class", "hide");
     // event.preventDefault();
     // TODO add a score element right here score.textContent = ("Your score is" + score)
     form.appendChild(labelEl);
