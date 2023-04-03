@@ -89,3 +89,7 @@ input{
     margin-right: 3%;
     color: var(--main-color);
 }
+
+.hide {
+    display: none;
+}

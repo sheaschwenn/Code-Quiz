@@ -79,7 +79,7 @@ var timeGiven = 20;
 // clicking the start button will start the timer, and show the first questions 
 // if the timer runs out the user form will be shown 
 startButton.addEventListener("click",function(event){
-
+    startButton.setAttribute("class", "hide");
     console.log('hey');
     var timeInterval = setInterval(function(){
         timeGiven--
