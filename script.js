@@ -10,44 +10,55 @@ var answer2 = document.getElementById("answer2");
 var answer3 = document.getElementById("answer3");
 var answer4 = document.getElementById("answer4");
 
+
 var i = 0
+var score = 0;
 
 // questions 
 var qAndA = [
     {question:"What does i stand for in typical for loops?",
     options:["Indicate","Index","Isolate","I dunno"],
-    answer: options[1]
+    answer: "Index"
     },
     {question:"Which one of these is NOT an event handler for .addEventListener?",
     options:["click","mouseout", "submit", "over"],
-    answer: qAndA[1].options[3],
+    answer: "over",
     },
     {question:"setInterval() is counted in:",
     options:["milliseconds", "minutes","seconds","nanoseconds"],
-    answer: qAndA[2].options[0]
+    answer: "milliseconds"
     }
  ]   
 
  console.log(qAndA[0].answer)
+ console.log(qAndA[1].answer)
+ console.log(qAndA[2].answer)
 
- var qText = question.textContent;
- var a1Text = answer1.textContent;
- var a2Text = answer2.textContent;
- var a3Text = answer3.textContent;
- var a4Text = answer2.textContent
+
 
 var qAndALength = Object.keys(qAndA).length
 
 function whichQandA(){
+    console.log("qandALength: "+qAndALength)
+    if(i < qAndALength){
     question.textContent = qAndA[i].question;
     answer1.textContent = qAndA[i].options[0];
     answer2.textContent = qAndA[i].options[1];
     answer3.textContent = qAndA[i].options[2];
     answer4.textContent = qAndA[i].options[3];
-    if(i < qAndALength){
-        i++
+      //  i++
+    }
+    if(i === qAndALength){
+      //  i++
+        console.log("i is equal to length")
+    }
+    if(i === qAndALength+1){
+        displayForm()
+        console.log("i is greather than length")
     }
 }
+
+
 
 
 
@@ -68,6 +79,7 @@ var timeGiven = 20;
 // clicking the start button will start the timer, and show the first questions 
 // if the timer runs out the user form will be shown 
 startButton.addEventListener("click",function(event){
+
     console.log('hey');
     var timeInterval = setInterval(function(){
         timeGiven--
@@ -76,61 +88,61 @@ startButton.addEventListener("click",function(event){
             
         }
           // if the timer is equal to zero then the form for the scoreboard will show 
-        if(timeGiven === 0){
-            count.textContent = ("Times up!");
+        if(timeGiven === 0 ){
+            count.textContent = ("Game Over!");
             clearInterval(timeInterval);
            displayForm()
             
+        }
+        if(i > qAndALength && timeGiven > 0){
+            count.textContent = (" You finished with "+timeGiven+ " seconds left!");
+            clearInterval(timeInterval)
+            displayForm
         }
 
     },1000)
     // first questions presented
 
      whichQandA()
-         
+
      })
 
 
     //  if anywhere in the button container is clicked then:
     answerContainer.addEventListener("click",function(event){
-     whichQandA()
-    })
-     
-
-    // answer
-    //     if(i = 1){
-    //        if(event.target === answer3){
-    //           event.stopPropagation
-    //           timeGiven = timeGiven
-              
-    //        }
-    //        else{
-    //           console.log("q2 wrong");
-    //           timeGiven = timeGiven-5;
-              
-    //        }
-    //     }
-        
-     
-    //     if(i=2){
-    //        if(event.target === answer1){
-    //           event.stopPropagation;
-    //           console.log("q3 right");
-    //           timeGiven = timeGiven   
-    //           displayForm()
-    //        }
-    //        else{
-    //           console.log("q3 wrong");
-    //           timeGiven = timeGiven-5
-    //           displayForm()
-              
-    //        }
-    //     }
-    //     }
-    // }
-        
-    //  )
+        event.stopPropagation()
+        console.log(i +"for each click")
+        console.log("event.target.textContent = ", event.target.textContent);
+        function scoring(){
+            
+            if(i < qAndA.length){
+                console.log(qAndA[i].answer)
+                
+                if(event.target.textContent === qAndA[i].answer){
+                score++
+                console.log("correct")
+                }
+                else{
+                    if(timeGiven < 5){
+                        timeGiven = 0
+                    }
+                    else{
+                    timeGiven = timeGiven - 5
+                    console.log("wrong")
+                    }
+                }
+            }
+        }
+        scoring()
+        i++;
+        whichQandA()
+           
     
+    }
+
+     
+    )
+
 
 
     
@@ -142,7 +154,7 @@ function storeUserInfo(){
     var userInfo = {
     // need to have .value to input the string that is the name 
         userName:inputEl.value,
-        score: timeGiven
+        score: score
     
 };
 // setting the userInfo into local storage
@@ -151,11 +163,11 @@ function storeUserInfo(){
 // printing the users name 
 function printScore(){
     ol.innerHTML = " "
-    console.log("yup")
+    console.log("score is:"+score)
     // retreiving the usersInfo from local storage 
     var lastUser = JSON.parse(localStorage.getItem("userInfo"))
     var li = document.createElement("li")
-    li.textContent = ("Name: "+lastUser.userName + " | Score: "+lastUser.score) 
+    li.textContent = ("Name: "+lastUser.userName + "  Score: "+lastUser.score) 
     ol.appendChild(li)
 // need to clear the inner HTML
    
@@ -176,18 +188,12 @@ function displayForm(){
     // ol.innerHTML = ""
        
         printScore();
+        
     }
 
-        )
-        // for loop to add a new list item every time a new name is added to userInfo
-        // var = names[]
-        // for(var i = 0; i<names.length;i++){
-        //     // var listNames = names[i];
-        //     
-            
-
-          
-        }
+    )
+   
+    }
     
         // labelEl.remove;
         // inputEl.remove;
