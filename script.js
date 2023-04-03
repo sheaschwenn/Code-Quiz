@@ -88,7 +88,7 @@ startButton.addEventListener("click",function(event){
             
         }
           // if the timer is equal to zero then the form for the scoreboard will show 
-        if(timeGiven === 0 ){
+        if(timeGiven <= 0 ){
             count.textContent = ("Game Over!");
             clearInterval(timeInterval);
            displayForm()
@@ -122,19 +122,19 @@ startButton.addEventListener("click",function(event){
                 score++
                 console.log("correct")
                 }
-                else{
+                else{                
+                    timeGiven = timeGiven - 5
+                    console.log("wrong");
                     if(timeGiven < 5){
                         timeGiven = 0
                     }
-                    else{
-                    timeGiven = timeGiven - 5
-                    console.log("wrong")
-                    }
+                    count.textContent = (timeGiven + " seconds left");
                 }
             }
+            i++;
         }
         scoring()
-        i++;
+       
         whichQandA()
            
     
