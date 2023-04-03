@@ -94,10 +94,10 @@ startButton.addEventListener("click",function(event){
            displayForm()
             
         }
-        if(i > qAndALength && timeGiven > 0){
+        if(i === qAndALength && timeGiven > 0){
             count.textContent = (" You finished with "+timeGiven+ " seconds left!");
             clearInterval(timeInterval)
-            displayForm
+            displayForm()
         }
 
     },1000)
