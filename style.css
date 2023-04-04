@@ -35,6 +35,12 @@ header{
 #start{
     font-size: x-large;
     
+    
+    
+}
+#replay{
+    font-size: x-large;
+    
 }
 
 button{
@@ -92,4 +98,8 @@ input{
 
 .hide {
     display: none;
+}
+
+.show{
+    display: contents;
 }

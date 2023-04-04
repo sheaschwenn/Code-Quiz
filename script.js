@@ -1,7 +1,9 @@
 // variables pointing to html doc
 var startButton = document.getElementById("start");
 var count = document.getElementById("timer");
+var replayButton = document.getElementById("replay")
 
+replayButton.setAttribute("class", "hide");
 // question answer containers 
 var question = document.getElementById("question");
 var answerContainer = document.getElementById("answers")
@@ -66,7 +68,7 @@ function whichQandA(){
 var form = document.querySelector("form");
 var labelEl = document.createElement("label");
 var inputEl = document.createElement("input");
-labelEl.textContent = "Name";
+labelEl.textContent = "Initials";
 var submit = document.createElement("button")
 submit.textContent = "Submit";
 
@@ -104,7 +106,8 @@ startButton.addEventListener("click",function(event){
     // first questions presented
 
      whichQandA()
-
+    replayButton.textContent = "Replay"
+    replayButton.setAttribute("class", "button");
      })
 
 
@@ -157,7 +160,11 @@ function storeUserInfo(){
         score: score
     
 };
+// Need to bring in existin scores from localStorage;
+var hs = JSON.parse(localStorage.getItem('hs')) || [];
+hs.push(userInfo);
 // setting the userInfo into local storage
+    localStorage.setItem("hs", JSON.stringify(hs));
     localStorage.setItem("userInfo", JSON.stringify(userInfo));
 }
 // printing the users name 
@@ -175,7 +182,7 @@ function printScore(){
 
 // triggered by the end of the timer 
 function displayForm(){
-    let qAndA = document.getElementById("qAndA-div");
+    var qAndA = document.getElementById("qAndA-div");
     qAndA.setAttribute("class", "hide");
     // event.preventDefault();
     // TODO add a score element right here score.textContent = ("Your score is" + score)
@@ -196,6 +203,11 @@ function displayForm(){
    
     }
     
+    replayButton.addEventListener("click",function(event){
+        window.location.reload()
+    })
+
+  
         // labelEl.remove;
         // inputEl.remove;
         // submit.remove;
