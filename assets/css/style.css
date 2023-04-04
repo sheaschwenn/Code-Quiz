@@ -1,0 +1,110 @@
+
+:root{
+    --main-color : #8b9b6a;
+
+}
+*{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+body{
+    /* background: radial-gradient(pink, #CCC2F2);
+    background-repeat: no-repeat; */
+    background-color: #DDF2B6;
+}
+h1{
+    font-size: xx-large;
+    color:var(--main-color);
+}
+
+h2{
+    font-size: x-large;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    color:var(--main-color);
+}
+
+
+header{
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+    
+
+#start{
+    font-size: x-large;
+    margin-top: -1%;
+    
+    
+}
+#replay{
+    font-size: x-large;
+    
+}
+
+button{
+    margin-top: 2%;
+    color:#DDF2B6;
+    background-color: var(--main-color);
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    padding-left: 1%;
+    padding-right: 1%;
+    border-color:var(--main-color);
+    border-radius: 8px;
+
+
+}
+section{
+    display: flex;
+}
+main{
+    margin-left: 10%;
+    width: 70%;
+    color:var(--main-color);
+    font-size: large;
+}
+
+#answers{
+    display: flex;
+    margin-top: 2%;
+    flex-direction: column;
+    width: 25%;
+
+}
+
+aside{
+    float: right;
+    margin-right: 20%;
+    color:var(--main-color);
+    font-size: larger;
+    margin-left: 5%;
+}
+form{
+    margin-top: 10%;
+    align-self: center;
+    font-size: larger;
+    margin-left: -15%;
+   
+}
+
+input{
+    background-color:#e8f1d7; ;
+    margin-left: 3%;
+    margin-right: 3%;
+    color: var(--main-color);
+}
+
+.hide {
+    display: none;
+}
+
+.show{
+    display: contents;
+}
+
+li{
+    margin-top: 2%;
+}
