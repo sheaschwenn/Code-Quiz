@@ -17,9 +17,12 @@ h1{
 }
 
 h2{
-    text-align: center;
-    
+    font-size: x-large;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    color:var(--main-color);
 }
+
 
 header{
     margin-top: 5%;
@@ -27,14 +30,12 @@ header{
     flex-direction: column;
     align-items: center;
 }
-#timer{
-    font-size: x-large;
-    margin-top: 2%;
-    color:var(--main-color);
-}
+
+    
+
 #start{
     font-size: x-large;
-    
+    margin-top: -1%;
     
     
 }
@@ -102,4 +103,8 @@ input{
 
 .show{
     display: contents;
+}
+
+li{
+    margin-top: 2%;
 }
