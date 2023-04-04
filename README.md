@@ -12,7 +12,8 @@ Multiple choice quiz to test coding knowledge
 
 ## Description 
 
-[Visit the Deployed Site](https://youtu.be/BFyeuLhjcPY)
+[Take my Quiz!](https://sheaschwenn.github.io/Code-Quiz/)
+
 
 Your GitHub profile is an extremely important aspect of your public identity as a developer. A well-crafted one allows you to show off your work to other developers as well as potential employers. An important component of your GitHub profile—and one that many new developers often overlook—is the README.md file.
 
@@ -24,9 +25,6 @@ At a minimum, your project README needs a title and a short description explaini
 
 Lastly, if your project is deployed, include a link to the deployed application here.
 
-If you're new to Markdown, read the GitHub guide on [Mastering Markdown](https://guides.github.com/features/mastering-markdown/).
-
-If you need an example of a good README, check out [the VSCode repository](https://github.com/microsoft/vscode).
 
 
 ![Site Langing Page](./site.gif)
@@ -36,7 +34,7 @@ If you need an example of a good README, check out [the VSCode repository](https
 
 If your README is very long, add a table of contents to make it easy for users to find what they need.
 
-* [Code Refactor Example](#code-refactor-example)
+* [JavaScript Example](#javascript-example)
 * [Usage](#usage)
 * [Learning Points](#learning-points)
 * [Author Info](#author-info)
@@ -44,80 +42,37 @@ If your README is very long, add a table of contents to make it easy for users t
 * [License](#license)
 
 
-## Code Refactor Example
+## JavaScript Example
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+A function to iterate through an array that held the questions, answer options, and correct options.  This function also called another function that displayed a form to input the users initials.  The users initials would then get stored along with their score in local storage to be rendered on the current page as well as on anther page that held all scores. 
+```js
+var qAndALength = Object.keys(qAndA).length
 
-
-```html
-<div class="header">
-        <h1>Hori<span class="seo">seo</span>n</h1>
-        <div>
-            <ul>
-                <li>
-                    <a href="#search-engine-optimization">Search Engine Optimization</a>
-                </li>
-                <li>
-                    <a href="#online-reputation-management">Online Reputation Management</a>
-                </li>
-                <li>
-                    <a href="#social-media-marketing">Social Media Marketing</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-```
-
-Converting the above non-semantic div with the class of 'header' to an appropriate [<header> semantic element](https://www.w3schools.com/html/html5_semantic_elements.asp). 
-
-```html
-<header>
-        <h1>Hori<span class="seo">seo</span>n</h1>
-        <nav>
-            <ul>
-                <li>
-                    <a href="#search-engine-optimization">Search Engine Optimization</a>
-                </li>
-                <li>
-                    <a href="#online-reputation-management">Online Reputation Management</a>
-                </li>
-                <li>
-                    <a href="#social-media-marketing">Social Media Marketing</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-
-```
-
-This change require some additional modification to the CSS selector: 
-
-```css
-.header {
-    padding: 20px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-color: #2a607c;
-    color: #ffffff;
+function whichQandA() {
+    console.log("qandALength: " + qAndALength)
+    if (i < qAndALength) {
+        question.textContent = qAndA[i].question;
+        answer1.textContent = qAndA[i].options[0];
+        answer2.textContent = qAndA[i].options[1];
+        answer3.textContent = qAndA[i].options[2];
+        answer4.textContent = qAndA[i].options[3];
+        
+    }
+    if (i === qAndALength) {
+        
+        console.log("i is equal to length")
+    }
+    if (i === qAndALength + 1) {
+        displayForm()
+        console.log("i is greather than length")
+    }
 }
 ```
 
-No longer targeting the element on the page with the class of 'header' but instead the css selector targeting the 'header' element 
-
-```css
-header {
-    padding: 20px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-color: #2a607c;
-    color: #ffffff;
-}
-
-```
 
 ## Usage 
 
-Provide instructions and examples for use. Include screenshots as needed. 
-
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+This web application can be used to test your knowledge of JavaScript as a quick check in. 
 
 ```md
 ![alt text](assets/images/screenshot.png)
@@ -125,38 +80,31 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 
 ## Learning Points 
+This was my first project incoperating HTML, CSS, and JavaScript all together in on application, and let me tell you I learned a lot. 
 
+* I gained a much better understanding of event listeners
 
-This is a good place to Explain what you Learned by creating this application.
-This is a great way to remind about all of the Complex Skills you now have.
-If the user is less experienced than you:
-They will be impressed by what you can do!
+* APIs in general and how to use them to add functionality to my JavaScript
 
-If the user is more experienced than you:
-They will be impressed by what you can do!
+* Local storage 
 
-Remember, it is easy to forget exactly how Valuable and Impressive your skills are, as well as How Much You’ve Learned!
-So quantify that here!
+* Objects
+
+* And just generally I learned a lot about JavaScript and know that there is so so so much more to learn! 
 
 
 ## Author Info
 
-```md
-### Farley Wittles 
+
+### Shea Schwennicke 
 
 
-* [Portfolio](https://youtu.be/bHX54GCrDB4)
-* [LinkedIn](https://youtu.be/bHX54GCrDB4)
-* [Github](https://youtu.be/bHX54GCrDB4)
-```
+* [Portfolio](https://sheaschwenn.github.io/Portfolio/)
+* [LinkedIn](https://www.linkedin.com/in/shea-schwennicke-76a378210/)
+* [Github](https://github.com/sheaschwenn)
 
-The user has looked through your whole README, and gotten familiar with your application. 
-This is where you take credit, and make it easy for them to learn more about you!
-Direct them to the following:
-- Your GitHub Profile
-- Your LinkedIn
-- Your Portfolio Website
-- And Anything Else You Want!
+
+
 
 Give credit where credit is due! 
 
@@ -179,26 +127,5 @@ The last section of a good README is a license. This lets other developers know 
 
 ---
 
-🏆 The sections listed above are the minimum for a good README, but your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
-
-## Badges
-
-![badmath](https://img.shields.io/github/languages/top/nielsenjared/badmath)
-
-Badges aren't _necessary_, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
-
-## Features
-
-If your project has a lot of features, consider adding a heading called "Features" and listing them there.
-
-## Contributing
-
-If you created an application or package and would like other developers to contribute it, you will want to add guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own.
-
-## Tests
-
-Go the extra mile and write tests for your application. Then provide examples on how to run them.
-
----
 
 © 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
