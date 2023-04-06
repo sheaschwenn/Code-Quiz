@@ -94,21 +94,7 @@ This was my first project incoperating HTML, CSS, and JavaScript all together in
 * [LinkedIn](https://www.linkedin.com/in/shea-schwennicke-76a378210/)
 * [Github](https://github.com/sheaschwenn)
 
-
-
-
-Give credit where credit is due! 
-
-If you Pseudocode or Pair Program with someone else, give them kudos in your Contributors section!
-
-
-## Credits
-
-List your collaborators, if any, with links to their GitHub profiles.
-
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-
-If you followed tutorials, include links to those here as well.
+cd
 
 
 ## License

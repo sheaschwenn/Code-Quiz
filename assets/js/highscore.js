@@ -1,5 +1,15 @@
 var userScore = [];
 ul = document.querySelector("ul")
+
+var maxNum = function(arr) {
+    var max = arr[0]
+    for(var i = 0;i<arr.length;i++){
+        if (max<arr[i]){
+            max = arr[i]
+        }
+    }
+    return max
+};
 //  printing the users name 
 function printScore() {
     ul.innerHTML = " "
@@ -11,6 +21,8 @@ function printScore() {
     if (userScore === null) {
         return
     }
+
+    
 
   
 
